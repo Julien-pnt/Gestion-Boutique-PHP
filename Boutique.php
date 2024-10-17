@@ -32,8 +32,8 @@ while($choix < 1 || $choix > 8){
 // Si le choix est le choix est le numéro 1 alors on affiche les articles disponibles dans la boutique 
 
 if ($choix == 1) {
-    echo "\nArticles disponibles :\n";
+    echo "\nArticles disponibles avec quantités :\n";
     for ($i = 0; $i < count($articles); $i++) {
-        echo "$i: $articles[$i]\n";
+        echo "$i: $articles[$i] - Quantité : $quantites[$i]\n";
     }
 }
