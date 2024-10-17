@@ -37,3 +37,31 @@ if ($choix == 1) {
         echo "$i: $articles[$i] - Quantité : $quantites[$i]\n";
     }
 }
+
+
+// Si le choix est le choix est le numéro 2 alors on réalise une vente dans la boutique 
+
+if ($choix == 2) {
+
+    // Affichage du stock et de la quantité
+
+    echo "\nArticles disponibles avec leurs quantités :\n";
+    for ($i = 0; $i < count($articles); $i++) {
+        echo "$i: $articles[$i] - Quantité : $quantites[$i]\n";
+    }
+
+    $index = intval(readline("Choisissez l'index de l'article à vendre : "));
+    $quantiteVendue = intval(readline("Quantité vendue : "));
+
+    if ($index >= 0 && $index < count($articles)) {
+        if ($quantites[$index] >= $quantiteVendue) {
+            $quantites[$index] -= $quantiteVendue;
+            $ventes[$index] += $quantiteVendue;
+            echo "Vente confirmée ✅ : $quantiteVendue $articles[$index]\n";
+        } else {
+            echo "Stock insuffisant ❌ pour $articles[$index].\n";
+        }
+    } else {
+        echo "Index invalide.\n";
+    }
+}
