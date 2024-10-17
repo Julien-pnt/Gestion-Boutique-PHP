@@ -28,3 +28,13 @@ while($choix < 1 || $choix > 8){
     echo "Erreur option inconnu veuillez saisir une option comprise entre 1 et 8 ! \n";
     $choix = intval(readline("Choisissez une option : "));
 }
+
+
+// Si le choix est le choix est le numéro 1 alors on affiche les articles disponibles dans la boutique 
+
+if ($choix == 1) {
+    echo "\nArticles disponibles :\n";
+    for ($i = 0; $i < count($articles); $i++) {
+        echo "$i: $articles[$i]\n";
+    }
+}
