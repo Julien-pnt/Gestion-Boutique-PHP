@@ -21,3 +21,10 @@ echo "8. 🚪 Quitter\n";
 // Initialisation du choix par l'user 
 
 $choix = intval(readline("Choisissez une option : "));
+
+// Vérification du choix 
+
+while($choix < 1 || $choix > 8){
+    echo "Erreur option inconnu veuillez saisr une option comprise entre 1 et 8 !";
+    $choix = intval(readline("Choisissez une option : "));
+}
