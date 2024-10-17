@@ -17,3 +17,7 @@ echo "5. 📊 Afficher l'état actuel du stock\n";
 echo "6. 📈 Suivre les ventes totales par article\n";
 echo "7. ❌ Supprimer un article\n";
 echo "8. 🚪 Quitter\n";
+
+// Initialisation du choix par l'user 
+
+$choix = intval(readline("Choisissez une option : "));
