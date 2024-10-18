@@ -61,7 +61,7 @@ while ($choix != 7) {
 
         if ($index >= 0 && $index < count($articles)) {
             if ($quantites[$index] >= $quantiteVendue) {
-                $quantites[$index] -= $quantiteVendue; // ENlève la quantité vendue
+                $quantites[$index] -= $quantiteVendue; // Enlève la quantité vendue
                 $ventes[$index] += $quantiteVendue; // Ajoute les nouvelles ventes 
                 echo "Vente confirmée ✅ : $quantiteVendue $articles[$index]\n";
             } else {
@@ -70,6 +70,16 @@ while ($choix != 7) {
         } else {
             echo "Index invalide.\n";
         }
+    }
+
+    if ($choix == 3) {
+        echo "\nArticles disponibles avec leurs quantités :\n";
+        for ($i = 0; $i < count($articles); $i++) {
+            echo "$i: $articles[$i] - Quantité : $quantites[$i]\n";
+        }
+
+        $index = intval(readline("Choisissez l'index de l'article à réapprovisionner : "));
+        $quantiteAjoutee = intval(readline("Quantité à ajouter : "));
     }
 }
 
