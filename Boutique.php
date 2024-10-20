@@ -72,15 +72,76 @@ while ($choix != 7) {
         }
     }
 
+    // Si le choix est le numéro 3, on réapprovisionne un article
+
     if ($choix == 3) {
-        echo "\nArticles disponibles avec leurs quantités :\n";
+        echo "Quel article souhaitez-vous réapprovisionner ? : \n";
+
+        // Affichage des articles disponibles pour réapprovisionnement 
+        
         for ($i = 0; $i < count($articles); $i++) {
             echo "$i: $articles[$i] - Quantité : $quantites[$i]\n";
         }
 
-        $index = intval(readline("Choisissez l'index de l'article à réapprovisionner : "));
-        $quantiteAjoutee = intval(readline("Quantité à ajouter : "));
+        // Choix de l'article + quantités à réapprovisionner
+        $index = intval(readline("Choisissez l'index de l'article que vous souhaitez réapprovisionner : "));
+        
+        $quantiteReapro = intval(readline("Quantité à réapprovisionner : "));
+        $quantites[$index] += $quantiteReapro; // Rajoute la quantité réapprovisionnée 
+        echo "Réapprovisionnement confirmé ✅ : $quantiteReapro $articles[$index]\n";
     }
+
+    // Si le choix est le numéro 4, on affiche l'état actuel du stock
+
+    if ($choix == 4) {
+        echo "\n📊 État actuel du stock :\n";
+
+        for ($i = 0; $i < count($articles); $i++) {
+        // Affichage de chaque article avec sa quantité
+        echo "$articles[$i] - Quantité restante : $quantites[$i] \n";
+        
+            // Vérification de la rupture de stock
+            if ($quantites[$i] == 0) {
+                echo "🚫 $articles[$i] est en rupture de stock !\n";
+                $tousEnStock = false; // On trouve un article en rupture de stock
+            }
+        }
+    }
+    
+    
+    // Si le choix est le numéro 5, on affiche les ventes totales par article
+    if ($choix == 5) {
+    echo "\n📈 Suivi des ventes totales par article :\n";
+
+        for ($i = 0; $i < count($articles); $i++) {
+            // Affichage de chaque article avec la quantité vendue
+            echo "$articles[$i] - Quantité vendue : $ventes[$i] 🛒\n";
+        }    
+    }
+
+    // Si le choix est le numéro 6, on supprime un article
+    if ($choix == 6) {
+    echo "Quel article souhaitez-vous supprimer ? : \n";
+
+    // Affichage des articles disponibles pour suppression
+        for ($i = 0; $i < count($articles); $i++) {
+            echo "$i: $articles[$i] - Quantité : $quantites[$i]\n";
+        }
+
+        // Choix de l'article à supprimer
+        $index = intval(readline("Choisissez l'index de l'article à supprimer : "));
+
+        if ($index >= 0 && $index < count($articles)) {
+            // Suppression de l'article sélectionner 
+            array_splice($articles, $index, 1);
+            array_splice($quantites, $index, 1);
+            array_splice($ventes, $index, 1);
+            echo "Article supprimé avec succès ✅ : $articles[$index]\n";
+        } else {
+            echo "Index invalide. Aucune suppression effectuée ! \n";
+        }
+    }
+
 }
 
 // Message de sortie
