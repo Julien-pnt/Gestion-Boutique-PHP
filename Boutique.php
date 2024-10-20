@@ -121,7 +121,7 @@ while ($choix != 7) {
 
     // Si le choix est le numéro 6, on supprime un article
     if ($choix == 6) {
-    echo "Quel article souhaitez-vous supprimer ? : \n";
+        echo "Quel article souhaitez-vous supprimer ? : \n";
 
     // Affichage des articles disponibles pour suppression
         for ($i = 0; $i < count($articles); $i++) {
