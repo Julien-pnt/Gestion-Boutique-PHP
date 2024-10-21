@@ -40,7 +40,9 @@ while ($choix != 7) {
     if ($choix == 1) {
         echo "\nArticles disponibles avec leurs quantités :\n";
         for ($i = 0; $i < count($articles); $i++) {
-            echo "$i: $articles[$i] - Quantité : $quantites[$i]\n";
+            if ($quantites[$i] > 0) {
+                echo "$i: $articles[$i] - Quantité : $quantites[$i]\n";
+            }
         }
     }
 
