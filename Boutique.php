@@ -132,13 +132,13 @@ while ($choix != 7) {
 
         // Choix de l'article à supprimer
         $index = intval(readline("Choisissez l'index de l'article à supprimer : "));
+        echo "Article supprimé avec succès ✅ : $articles[$index]\n";
 
         if ($index >= 0 && $index < count($articles)) {
             // Suppression de l'article sélectionner 
             array_splice($articles, $index, 1);
             array_splice($quantites, $index, 1);
             array_splice($ventes, $index, 1);
-            echo "Article supprimé avec succès ✅ : $articles[$index]\n";
         } else {
             echo "Index invalide. Aucune suppression effectuée ! \n";
         }
